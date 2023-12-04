@@ -34,8 +34,7 @@
   left: 0;
 }
 
-.menuOpen {
-  @extend .menu;
+.open {
   display: block
 }
 
@@ -60,8 +59,7 @@
     display: none;
   }
 
-  .menu,
-  .menuOpen {
+  .menu {
     position: static;
     width: auto;
     display: block;
