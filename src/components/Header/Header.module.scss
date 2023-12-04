@@ -1,3 +1,5 @@
+$breakpoint: 900px;
+
 .header {
   background-color: black;
   color: white;
@@ -23,6 +25,10 @@
 .ham {
   width: 27px;
   height: 27px;
+
+  @media (min-width: $breakpoint) {
+    display: none;
+  }
 }
 
 .menu {
@@ -32,6 +38,12 @@
   position: fixed;
   top: 0;
   left: 0;
+
+  @media(min-width: $breakpoint) {
+    position: static;
+    width: auto;
+    display: block;
+  }
 }
 
 .open {
@@ -41,36 +53,17 @@
 .list {
   list-style-type: none;
   margin: 47px 0 0 40px;
+
+  @media(min-width: $breakpoint) {
+    display: flex;
+    margin: 0;
+  }
 }
 
 .item {
   margin-bottom: 35px;
-}
 
-.close {
-  width: 22px;
-  height: 22px;
-  float: right;
-  margin: 15px 20px 0 0;
-}
-
-@media(min-width: 900px) {
-  .ham {
-    display: none;
-  }
-
-  .menu {
-    position: static;
-    width: auto;
-    display: block;
-  }
-
-  .list {
-    display: flex;
-    margin: 0;
-  }
-
-  .item {
+  @media(min-width: $breakpoint) {
     margin: 0 0 0 50px;
     cursor: pointer;
 
@@ -78,8 +71,15 @@
       transform: scale(1.1);
     }
   }
+}
 
-  .close {
+.close {
+  width: 22px;
+  height: 22px;
+  float: right;
+  margin: 15px 20px 0 0;
+
+  @media(min-width: $breakpoint) {
     display: none;
   }
 }
