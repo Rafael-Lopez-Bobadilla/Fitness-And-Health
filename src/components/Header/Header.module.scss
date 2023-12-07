@@ -6,6 +6,9 @@ $breakpoint: 900px;
   width: 100%;
   font-family: 'Inter';
   font-weight: bold;
+  position: sticky;
+  top: 0px;
+  z-index: 4;
 }
 
 .nav {
@@ -25,6 +28,7 @@ $breakpoint: 900px;
 .ham {
   width: 27px;
   height: 27px;
+  cursor: pointer;
 
   @media (min-width: $breakpoint) {
     display: none;
@@ -36,6 +40,7 @@ $breakpoint: 900px;
   width: 100%;
   background-color: black;
   position: fixed;
+  z-index: 4;
   top: 0;
   left: 0;
 
@@ -62,10 +67,10 @@ $breakpoint: 900px;
 
 .item {
   margin-bottom: 35px;
+  cursor: pointer;
 
   @media(min-width: $breakpoint) {
     margin: 0 0 0 50px;
-    cursor: pointer;
 
     &:hover {
       transform: scale(1.1);
@@ -78,6 +83,7 @@ $breakpoint: 900px;
   height: 22px;
   float: right;
   margin: 15px 20px 0 0;
+  cursor: pointer;
 
   @media(min-width: $breakpoint) {
     display: none;

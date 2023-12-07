@@ -1,0 +1,38 @@
+.iconContainer {
+  position: absolute;
+  height: 100px;
+  width: 50px;
+  bottom: 0px;
+  left: calc(50% - 25px);
+  z-index: 3;
+  cursor: pointer;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  animation: arrow 1.4s linear infinite;
+}
+
+@keyframes arrow {
+  0% {
+    bottom: 50px;
+  }
+
+  50% {
+    bottom: 0px;
+  }
+
+  75% {
+    bottom: 15px;
+  }
+
+  85% {
+    bottom: 0px;
+  }
+
+  100% {
+    bottom: 50px;
+  }
+}
