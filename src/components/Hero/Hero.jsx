@@ -1,12 +1,12 @@
 import s from './Hero.module.scss'
-import hero1_prev from '../../images/hero/hero1_prev.jpg'
+import HeroPicture from './HeroPicture'
 import arrowDown from '../../images/svgs/arrowDown.svg'
 const Hero = () => {
   return (
     <section className={s.hero}>
       <div className={s.container}>
         <div className={s.leftOverlay}></div>
-        <img src={hero1_prev} className={s.img} />
+        <HeroPicture />
         <div className={s.overlay}></div>
         <div className={s.text}>
           <h1>IT'S ALL ABOUT WHAT YOU CAN ACHIVE</h1>
