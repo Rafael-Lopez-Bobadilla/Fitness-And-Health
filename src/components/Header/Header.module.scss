@@ -21,14 +21,16 @@ $breakpoint: 900px;
   align-items: center;
 }
 
-.name {
+.name,
+.ham,
+.close,
+.item {
   cursor: pointer;
 }
 
 .ham {
   width: 27px;
   height: 27px;
-  cursor: pointer;
 
   @media (min-width: $breakpoint) {
     display: none;
@@ -67,7 +69,6 @@ $breakpoint: 900px;
 
 .item {
   margin-bottom: 35px;
-  cursor: pointer;
 
   @media(min-width: $breakpoint) {
     margin: 0 0 0 50px;
@@ -83,7 +84,6 @@ $breakpoint: 900px;
   height: 22px;
   float: right;
   margin: 15px 20px 0 0;
-  cursor: pointer;
 
   @media(min-width: $breakpoint) {
     display: none;

@@ -22,9 +22,9 @@
     top: 0;
     height: 100%;
     width: 500px;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 30%,
-        rgba(0, 0, 0, 0.75) 70%,
-        rgba(0, 0, 0, 0.5) 85%,
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 60%,
+        rgba(0, 0, 0, 0.75) 80%,
+        rgba(0, 0, 0, 0.5) 90%,
         rgba(0, 0, 0, 0) 100%);
   }
 }
@@ -32,7 +32,7 @@
 .rightOverlay {
   display: none;
 
-  @media (min-width: utils.$breakpoint) {
+  @media (min-width: 1240px) {
     display: block;
     position: absolute;
     z-index: 2;
