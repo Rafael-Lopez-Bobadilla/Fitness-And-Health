@@ -22,7 +22,7 @@ const Header = () => {
           <img src={close} className={s.close} onClick={() => setIsOpen(!isOpen)} />
           <ul className={s.list}>
             {items.map((item, index) => {
-              return <li className={s.item} key={index}>
+              return <li className={s.item} key={item}>
                 <a onClick={() => scrollToSection(sectionsRefs[index])}>{item}</a>
               </li>
             })}

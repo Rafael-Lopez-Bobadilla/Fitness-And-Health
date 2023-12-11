@@ -2,6 +2,7 @@ import './App.scss'
 import Header from './components/Header/Header'
 import Hero from './components/Hero/Hero'
 import About from './components/About/About'
+import Coaches from './components/Coaches/Coaches'
 import SectionsProvider from './SectionsProvider'
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <Hero />
       <About />
+      <Coaches />
     </SectionsProvider>
   )
 }
