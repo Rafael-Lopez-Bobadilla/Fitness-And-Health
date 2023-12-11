@@ -9,8 +9,12 @@
 .article {
   margin: 70px auto 0 auto;
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
   padding: 0 10px;
+
+  @media (min-width: 600px) {
+    max-width: 500px;
+  }
 
   @media (min-width: 850px) {
     display: flex;
