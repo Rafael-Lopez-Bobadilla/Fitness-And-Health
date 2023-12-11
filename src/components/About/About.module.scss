@@ -1,15 +1,9 @@
-$breakpoint: 1100px;
-
 .mainText {
   text-align: center;
   font-size: 16px;
   padding-top: 20px;
   margin: 0 auto;
   max-width: 600px;
-}
-
-.article:nth-child(even) .imgContainer {
-  order: 2;
 }
 
 .article {
@@ -22,6 +16,10 @@ $breakpoint: 1100px;
     display: flex;
     max-width: 1000px;
   }
+}
+
+.article:nth-child(even) .imgContainer {
+  order: 2;
 }
 
 .imgContainer {

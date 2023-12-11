@@ -24,7 +24,7 @@ const About = () => {
               ${article.img_1000} 1000w,
               ${article.img_500} 500w,
             `}
-                  sizes='(max-width: 600px) 320px, (min-width: 601px) 500px' />
+                  sizes='500px' />
               </div>
               <div className={s.articleText}>
                 <h3>{article.heading}</h3>

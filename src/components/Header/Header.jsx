@@ -12,11 +12,12 @@ const Header = () => {
       behavior: 'smooth',
       block: 'start'
     })
+    setIsOpen(false)
   }
   return (
     <header className={s.header}>
       <nav className={s.nav}>
-        <a className={s.name}>Fitness & Health</a>
+        <a className={s.name} onClick={() => window.scrollTo(0, 0)}>Fitness & Health</a>
         <img src={ham} className={s.ham} onClick={() => setIsOpen(!isOpen)} />
         <div className={isOpen ? `${s.menu} ${s.open}` : s.menu}>
           <img src={close} className={s.close} onClick={() => setIsOpen(!isOpen)} />
