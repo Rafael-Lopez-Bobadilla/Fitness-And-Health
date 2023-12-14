@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 40px 0;
+  margin: 40px 0 20px 0;
 }
 
 $imgWidth: 150px;
@@ -42,6 +42,10 @@ $imgWidth: 150px;
 .arrow {
   width: 25px;
   height: 25px;
+
+  @media (min-width: 1100px) {
+    cursor: pointer;
+  }
 }
 
 .dotsContainer {
@@ -51,28 +55,33 @@ $imgWidth: 150px;
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
-  margin: 0 5px;
+  width: 15px;
+  height: 15px;
+  margin: 0 10px;
   border-radius: 50%;
   background-color: gray;
   opacity: 0.5;
   transition: opacity 0.5s linear;
+
+  @media (min-width: 1100px) {
+    cursor: pointer;
+  }
 }
 
 .info {
-  max-width: 700px;
+  max-width: 900px;
   margin: 40px auto;
   padding: 0 10px;
+  justify-content: center;
 
-  @media (min-width: 768px) {
+  @media (min-width: 700px) {
     display: flex;
-    justify-content: center;
   }
 }
 
 .info p {
   margin-bottom: 20px;
+  max-width: 600px;
 
   @media (min-width: 768px) {
     margin: 0 20px 0 0;
