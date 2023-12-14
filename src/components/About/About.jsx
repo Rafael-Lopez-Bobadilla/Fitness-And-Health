@@ -7,12 +7,12 @@ const About = () => {
   const sectionsRefs = useContext(sectionsContext)
   return (
     <SectionWrapper heading='About' ref={sectionsRefs[0]}>
-      <p className={s.mainText}>
+      <p className={s.description}>
         We are a vibrant community of like-minded individuals in pursuit of health and fitness.
         Our Coaches are dedicated to providing you with a safe, fun, and effective training program that
         will help you meet your fitness goals. We encourage you to join our family.
       </p>
-      <div>
+      <div className={s.articles}>
         {articles.map(article => {
           return (
             <article key={article.id} className={s.article}>
