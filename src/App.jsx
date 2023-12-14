@@ -4,6 +4,7 @@ import Hero from './components/Hero/Hero'
 import About from './components/About/About'
 import Coaches from './components/Coaches/Coaches'
 import Photos from './components/Photos/Photos'
+import Pricing from './components/Pricing/Pricing'
 import SectionsProvider from './SectionsProvider'
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <About />
       <Coaches />
       <Photos />
+      <Pricing />
     </SectionsProvider>
   )
 }

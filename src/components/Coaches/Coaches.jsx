@@ -26,7 +26,7 @@ const Coaches = () => {
           <h3>Specialties</h3>
           <ul>
             {coaches[selected].specialties.map(item => {
-              return <li>{item}</li>
+              return <li key={item}>{item}</li>
             })}
           </ul>
         </div>

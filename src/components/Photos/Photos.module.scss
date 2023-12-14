@@ -1,3 +1,29 @@
-.photos {
-  padding: 0 20px;
+.grid {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.img {
+  width: 46%;
+  height: 130px;
+  object-fit: cover;
+  margin: 1%;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  @media (min-width: 450px) {
+    width: 200px;
+    margin: 5px;
+  }
+
+  @media (min-width: 1000px) {
+    width: 280px;
+    height: 200px;
+    cursor: zoom-in;
+  }
 }
