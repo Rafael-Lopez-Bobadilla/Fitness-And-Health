@@ -35,8 +35,8 @@ const Slider = ({ setIsOpen, index }) => {
     cancelAnimationFrame(animationRef.current)
     isDragging.current = false
     const movedBy = translation.current - position.current
-    if (movedBy > 200 && index.current > 0) index.current = index.current - 1
-    if (movedBy < -200 && index.current < photosArray.length - 1) index.current = index.current + 1
+    if (movedBy > 80 && index.current > 0) index.current = index.current - 1
+    if (movedBy < -80 && index.current < photosArray.length - 1) index.current = index.current + 1
     const finalPosition = -slider.current.offsetWidth * index.current
     slider.current.style.transition = 'transform 0.3s linear'
     translation.current = finalPosition
