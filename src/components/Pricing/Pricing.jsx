@@ -22,12 +22,15 @@ const Pricing = () => {
       <div className={s.cards}>
         {cards.map(card => {
           return (
-            <div className={card.name === selected ? `${s.card} ${s.selected}` : s.card}>
+            <div
+              key={card.name}
+              className={card.name === selected ? `${s.card} ${s.selected}` : s.card}>
               <h3>{card.name}</h3>
               <h4>{card.price}</h4>
               {features.map((item, index) => {
                 return (
-                  <div className={index < card.features ? s.item : `${s.item} ${s.blur}`}>
+                  <div key={index}
+                    className={index < card.features ? s.item : `${s.item} ${s.blur}`}>
                     <img src={index < card.features ? tick : closeGray} />
                     <span>{item}</span>
                   </div>
