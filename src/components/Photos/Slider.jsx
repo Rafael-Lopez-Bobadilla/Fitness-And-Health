@@ -11,6 +11,7 @@ const Slider = ({ setIsOpen, index }) => {
   const position = useRef(0)
   const isDragging = useRef(false)
   const animationRef = useRef(null)
+  const isZoomed = useRef(false)
   useEffect(() => {
     position.current = -slider.current.offsetWidth * index.current
     translation.current = position.current
@@ -21,33 +22,41 @@ const Slider = ({ setIsOpen, index }) => {
     }
   }, [])
   const handleStart = (e) => {
-    slider.current.style.transition = 'none'
-    startPosition.current = e.clientX
-    isDragging.current = true
-    animationRef.current = requestAnimationFrame(animation)
+    if (window.visualViewport.scale > 1 && !isZoomed.current) {
+      isZoomed.current = true
+      slider.current.style.touchAction = 'auto'
+    }
+    if (window.visualViewport.scale <= 1 && isZoomed.current) {
+      isZoomed.current = false
+      slider.current.style.touchAction = 'pinch-zoom'
+    }
+    if (!isZoomed.current) {
+      slider.current.style.transition = 'none'
+      startPosition.current = e.clientX
+      isDragging.current = true
+      animationRef.current = requestAnimationFrame(animation)
+    }
   }
   const handleMove = (e) => {
-    if (isDragging) {
+    if (isDragging.current) {
       translation.current = position.current + e.clientX - startPosition.current
     }
   }
   const handleEnd = () => {
-    cancelAnimationFrame(animationRef.current)
-    isDragging.current = false
-    const movedBy = translation.current - position.current
-    if (movedBy > 80 && index.current > 0) index.current = index.current - 1
-    if (movedBy < -80 && index.current < photosArray.length - 1) index.current = index.current + 1
-    const finalPosition = -slider.current.offsetWidth * index.current
-    slider.current.style.transition = 'transform 0.3s linear'
-    translation.current = finalPosition
-    position.current = finalPosition
+    if (isDragging.current) {
+      cancelAnimationFrame(animationRef.current)
+      isDragging.current = false
+      const movedBy = translation.current - position.current
+      if (movedBy > 100 && index.current > 0) index.current = index.current - 1
+      if (movedBy < -100 && index.current < photosArray.length - 1) index.current = index.current + 1
+      slider.current.style.transition = 'transform 0.3s linear'
+      setPositionByIndex()
+    }
   }
   const handleResize = () => {
-    slider.current.style.transition = 'none'
     if (slider.current) {
-      translation.current = -slider.current.offsetWidth * index.current
-      position.current = translation.current
-      slider.current.style.transform = `translateX(${position.current}px)`
+      slider.current.style.transition = 'none'
+      setPositionByIndex()
     }
   }
   const animation = () => {
@@ -55,10 +64,13 @@ const Slider = ({ setIsOpen, index }) => {
     if (isDragging.current) requestAnimationFrame(animation)
   }
   const onArrowClick = (nextIndex) => {
+    slider.current.style.transition = 'transform 0.3s linear'
     if (nextIndex > 0 && nextIndex < photosArray.length - 1) index.current = nextIndex
+    setPositionByIndex()
+  }
+  const setPositionByIndex = () => {
     translation.current = -slider.current.offsetWidth * index.current
     position.current = translation.current
-    slider.current.style.transition = 'transform 0.3s linear'
     slider.current.style.transform = `translateX(${position.current}px)`
   }
   return (
@@ -82,7 +94,7 @@ const Slider = ({ setIsOpen, index }) => {
                     ${photo.photo_1500 ? `${photo.photo_1500} 1500w,` : ''}
                     ${photo.photo_1000} 1000w
                   `}
-                  sizes='(max-width: 700px) 100vw, (max-width: 1399px) 700px, 1000px'
+                  sizes='(max-width: 700px) 100vw, 700px'
                 />
               </div>
             )
