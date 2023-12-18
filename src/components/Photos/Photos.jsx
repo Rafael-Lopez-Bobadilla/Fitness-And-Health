@@ -8,9 +8,9 @@ import { useState, useRef } from "react"
 const Photos = () => {
   const sectionsRefs = useContext(sectionsContext)
   const [isOpen, setIsOpen] = useState(false)
-  const index = useRef(0)
+  const [index, setIndex] = useState(0)
   const openSlider = (initialIndex) => {
-    index.current = initialIndex
+    setIndex(initialIndex)
     setIsOpen(true)
   }
   return (
@@ -30,7 +30,7 @@ const Photos = () => {
           )
         })}
       </div>
-      {isOpen && <Slider setIsOpen={setIsOpen} index={index} />}
+      {isOpen && <Slider setIsOpen={setIsOpen} index={index} setIndex={setIndex} />}
     </SectionWrapper>
   )
 }
