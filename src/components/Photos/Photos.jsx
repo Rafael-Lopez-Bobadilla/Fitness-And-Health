@@ -3,16 +3,11 @@ import { useContext } from "react"
 import { sectionsContext } from "../../SectionsProvider"
 import s from './Photos.module.scss'
 import { photosArray } from "./photosArray"
-import Slider from "./Slider"
-import { useState, useRef } from "react"
+import Carousel from "./Carousel"
+import { useState } from "react"
 const Photos = () => {
   const sectionsRefs = useContext(sectionsContext)
   const [isOpen, setIsOpen] = useState(false)
-  const [index, setIndex] = useState(0)
-  const openSlider = (initialIndex) => {
-    setIndex(initialIndex)
-    setIsOpen(true)
-  }
   return (
     <SectionWrapper ref={sectionsRefs[2]} heading='Photos'>
       <div className={s.grid}>
@@ -25,12 +20,12 @@ const Photos = () => {
               `}
               sizes='(max-width: 999px) 200px, 280px'
               className={s.img}
-              onClick={() => openSlider(index)}
+              onClick={() => setIsOpen(true)}
             />
           )
         })}
       </div>
-      {isOpen && <Slider setIsOpen={setIsOpen} index={index} setIndex={setIndex} />}
+      {isOpen && <Carousel setIsOpen={setIsOpen} />}
     </SectionWrapper>
   )
 }
