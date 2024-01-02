@@ -21,6 +21,11 @@
   }
 }
 
+.slide {
+  display: flex;
+  justify-content: center;
+}
+
 $arrowWidth: 30px;
 
 %arrow {
