@@ -4,10 +4,15 @@ import right from '../../images/svgs/right.svg'
 import close from '../../images/svgs/close.svg'
 import Slides from './Slides'
 import { photosArray } from './photosArray'
-const Carousel = ({ setIsOpen }) => {
+const Carousel = ({ setIsOpen, index }) => {
+  const arrowClick = (nextIndex) => {
+    if (nextIndex < 0) return
+    if (nextIndex > photosArray - length - 1) return
+    index = nextIndex
+  }
   return (
     <div className={s.wrapper}>
-      <Slides>
+      <Slides index={index}>
         {photosArray.map((photo, index) => {
           return (
             <div className={s.slide} key={index}>
@@ -24,8 +29,8 @@ const Carousel = ({ setIsOpen }) => {
           )
         })}
       </Slides>
-      <img src={left} className={s.left} />
-      <img src={right} className={s.right} />
+      <img src={left} className={s.left} onClick={() => arrowClick(index - 1)} />
+      <img src={right} className={s.right} onClick={() => arrowClick(index + 1)} />
       <img src={close} className={s.close} onClick={() => setIsOpen(false)} />
     </div>
   )

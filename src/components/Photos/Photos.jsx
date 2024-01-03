@@ -4,10 +4,15 @@ import { sectionsContext } from "../../SectionsProvider"
 import s from './Photos.module.scss'
 import { photosArray } from "./photosArray"
 import Carousel from "./Carousel"
-import { useState } from "react"
+import { useState, useRef } from "react"
 const Photos = () => {
   const sectionsRefs = useContext(sectionsContext)
   const [isOpen, setIsOpen] = useState(false)
+  const currentIndex = useRef(0)
+  const openCarousel = (index) => {
+    setIsOpen(true)
+    currentIndex.current = index
+  }
   return (
     <SectionWrapper ref={sectionsRefs[2]} heading='Photos'>
       <div className={s.grid}>
@@ -20,12 +25,12 @@ const Photos = () => {
               `}
               sizes='(max-width: 999px) 200px, 280px'
               className={s.img}
-              onClick={() => setIsOpen(true)}
+              onClick={() => openCarousel(index)}
             />
           )
         })}
       </div>
-      {isOpen && <Carousel setIsOpen={setIsOpen} />}
+      {isOpen && <Carousel setIsOpen={setIsOpen} index={currentIndex.current} />}
     </SectionWrapper>
   )
 }
